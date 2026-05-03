@@ -12,8 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
   var appliance = APPLIANCE_CATALOG[applianceId];
   var purchase = email ? DEMO_PURCHASES[email] : null;
 
-  // Set appliance hero
-  document.getElementById('ah-icon').textContent = appliance.icon;
+  // Set appliance hero - use product image if available, fall back to emoji
+  var ahIcon = document.getElementById('ah-icon');
+  if (appliance.image) {
+    ahIcon.innerHTML = '<img src="' + appliance.image + '" alt="' + appliance.name + '" style="width:100%;height:100%;object-fit:contain;border-radius:10px;" onerror="this.parentNode.textContent=\'' + appliance.icon + '\'">';
+  } else {
+    ahIcon.textContent = appliance.icon;
+  }
+
   document.getElementById('ah-name').textContent = appliance.name;
   document.getElementById('ah-model').textContent = 'Model: ' + appliance.model + ' · ' + appliance.specs;
   document.getElementById('ah-retailer').textContent = purchase
@@ -142,18 +148,15 @@ function renderWarrantyTab(appliance) {
     '</div>';
 
   var repairs = w.repairs || [];
-  var repairsHtml = '';
-  if (repairs.length === 0 || (repairs.length === 1 && !repairs[0].date.match(/\d/))) {
-    repairsHtml = '<div class="rh-empty">No repairs logged yet. Your service visits will appear here.</div>';
-  } else {
-    repairsHtml = repairs.map(function(r) {
-      return '<div class="rh-item">' +
-        '<div class="rh-dot"></div>' +
-        '<div class="rh-desc">' + r.description + '<div class="rh-date">' + r.date + '</div></div>' +
-        '<div class="rh-status">' + r.status + '</div>' +
-      '</div>';
-    }).join('');
-  }
+  var repairsHtml = repairs.length === 0
+    ? '<div class="rh-empty">No repairs logged yet. Your service visits will appear here.</div>'
+    : repairs.map(function(r) {
+        return '<div class="rh-item">' +
+          '<div class="rh-dot"></div>' +
+          '<div class="rh-desc">' + r.description + '<div class="rh-date">' + r.date + '</div></div>' +
+          '<div class="rh-status">' + r.status + '</div>' +
+        '</div>';
+      }).join('');
 
   document.getElementById('repair-history').innerHTML =
     '<div class="repair-history">' +
