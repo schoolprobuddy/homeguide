@@ -24,7 +24,7 @@ var APPLIANCE_CATALOG = {
     model: 'FV1409H3V',
     category: 'washing-machine',
     icon: '🫧',
-    image: 'DZ-01 (1).jpg',
+    image: '/washer.jpg',
     specs: '9kg/5kg · AI Direct Drive · Steam · ThinQ',
     warranty_months: 24,
     requires_pro_install: false,
