@@ -30,10 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
       ? '<div class="ac-badge badge-pro">Pro install</div>'
       : '';
 
+    var iconHtml = appliance.image
+      ? '<img src="' + appliance.image + '" alt="' + appliance.name + '" style="width:100%;height:100%;object-fit:contain;border-radius:10px;" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'' + appliance.icon + '\'">'
+      : appliance.icon;
+
     var card = document.createElement('div');
     card.className = 'appliance-card';
     card.innerHTML =
-      '<div class="ac-icon">' + appliance.icon + '</div>' +
+      '<div class="ac-icon">' + iconHtml + '</div>' +
       '<div class="ac-info">' +
         '<div class="ac-name">' + appliance.name + '</div>' +
         '<div class="ac-model">' + appliance.model + ' &middot; ' + appliance.specs + '</div>' +
