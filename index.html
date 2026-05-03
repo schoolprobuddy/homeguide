@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HomeGuide NZ — Your Appliance Companion</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-mark">HG</div>
+        <div class="logo-text">
+          <span class="logo-name">HomeGuide</span>
+          <span class="logo-nz">NZ</span>
+        </div>
+      </div>
+      <div class="header-tag">Your appliance companion</div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">Set up your appliance<br>the right way. First time.</h1>
+      <p class="hero-sub">Scan your receipt QR code or enter your email to access unboxing guides, installation steps, troubleshooting, and warranty info for every appliance you purchased.</p>
+    </div>
+  </section>
+
+  <!-- Lookup Card -->
+  <main class="lookup-wrap">
+    <div class="lookup-card">
+
+      <!-- Tab switcher -->
+      <div class="lookup-tabs">
+        <button class="ltab active" onclick="switchTab('qr', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM17 17h3v3h-3zM14 20h3"/></svg>
+          Scan QR Code
+        </button>
+        <button class="ltab" onclick="switchTab('email', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Enter Email
+        </button>
+      </div>
+
+      <!-- QR Tab -->
+      <div class="tab-panel" id="tab-qr">
+        <p class="tab-hint">Point your camera at the QR code on your receipt or invoice.</p>
+        <div id="qr-reader" class="qr-reader"></div>
+        <button class="btn-primary" id="qr-start-btn" onclick="startQR()">Start Camera</button>
+        <div id="qr-result" class="qr-result hidden"></div>
+      </div>
+
+      <!-- Email Tab -->
+      <div class="tab-panel hidden" id="tab-email">
+        <p class="tab-hint">Enter the email address you used when purchasing your appliance.</p>
+        <div class="input-group">
+          <label class="input-label" for="email-input">Your email address</label>
+          <input type="email" id="email-input" class="input-field" placeholder="you@example.com" />
+        </div>
+        <div class="input-group">
+          <label class="input-label" for="invoice-input">Invoice number (optional)</label>
+          <input type="text" id="invoice-input" class="input-field" placeholder="e.g. INV-2024-00123" />
+        </div>
+        <button class="btn-primary" onclick="lookupByEmail()">Find My Appliances</button>
+        <div id="email-error" class="error-msg hidden"></div>
+      </div>
+
+    </div>
+
+    <!-- Demo notice -->
+    <div class="demo-banner">
+      <div class="demo-icon">ℹ</div>
+      <div class="demo-text">
+        <strong>Beta demo</strong> — Use email <code>demo@homeguide.nz</code> to explore a sample purchase with 3 appliances.
+      </div>
+    </div>
+  </main>
+
+  <!-- How it works -->
+  <section class="how-section">
+    <h2 class="section-title">How it works</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-label">Scan or enter email</div>
+        <div class="step-desc">Use your receipt QR code or the email from your purchase confirmation.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-label">Select your appliance</div>
+        <div class="step-desc">All your purchased appliances appear instantly with model details.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-label">Follow the guides</div>
+        <div class="step-desc">Video guides, step-by-step instructions, and troubleshooting — all in one place.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-label">Track your warranty</div>
+        <div class="step-desc">See exactly when your warranty expires and log any repairs or service visits.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warning strip -->
+  <div class="warning-strip">
+    <div class="warning-inner">
+      <div class="warning-icon">⚠</div>
+      <div class="warning-text">Some appliances require a licensed professional to install by NZ law — including gas appliances, hardwired ovens, and heat pumps. HomeGuide will always flag these clearly.</div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <p>HomeGuide NZ &copy; 2025 &mdash; Beta version 0.1</p>
+    <p class="footer-sub">Built for New Zealand appliance retailers and their customers.</p>
+  </footer>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Service — HomeGuide NZ</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <header class="app-header">
+    <div class="header-inner">
+      <a href="javascript:history.back()" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Back
+      </a>
+      <div class="logo">
+        <div class="logo-mark">HG</div>
+        <div class="logo-text">
+          <span class="logo-name">HomeGuide</span>
+          <span class="logo-nz">NZ</span>
+        </div>
+      </div>
+      <div style="width:60px"></div>
+    </div>
+  </header>
+
+  <main class="page-main">
+
+    <div class="service-hero">
+      <h1 class="page-title">Request a service visit</h1>
+      <p class="page-sub">Fill in the details below and a certified technician will be in touch within one business day.</p>
+    </div>
+
+    <div class="form-card" id="service-form-wrap">
+      <form id="service-form" onsubmit="submitService(event)">
+
+        <div class="input-group">
+          <label class="input-label">Appliance</label>
+          <input type="text" class="input-field" id="svc-appliance" placeholder="e.g. LG Front Load Washer" />
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Describe the issue</label>
+          <textarea class="input-field textarea-field" id="svc-issue" placeholder="e.g. Machine shakes violently during spin cycle, error code UE showing..." rows="4"></textarea>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Your name</label>
+          <input type="text" class="input-field" id="svc-name" placeholder="Full name" />
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Phone number</label>
+          <input type="tel" class="input-field" id="svc-phone" placeholder="e.g. 021 123 4567" />
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Your suburb / city</label>
+          <input type="text" class="input-field" id="svc-location" placeholder="e.g. Ponsonby, Auckland" />
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Preferred time</label>
+          <select class="input-field" id="svc-time">
+            <option>Any time</option>
+            <option>Morning (8am – 12pm)</option>
+            <option>Afternoon (12pm – 5pm)</option>
+            <option>Weekend only</option>
+          </select>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="svc-warranty-claim" />
+          <label for="svc-warranty-claim" class="check-label">This may be a warranty claim</label>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:1rem">Submit request</button>
+
+      </form>
+
+      <div class="success-msg hidden" id="service-success">
+        <div class="success-icon">✓</div>
+        <h2 class="success-title">Request received!</h2>
+        <p class="success-body">A certified technician will contact you within one business day. Your reference number is <strong id="ref-number"></strong>.</p>
+        <a href="appliances.html" class="btn-secondary" style="text-decoration:none;display:inline-block;margin-top:1rem">Back to my appliances</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>HomeGuide NZ &copy; 2025 &mdash; Beta 0.1</p>
+  </footer>
+
+</div>
+
+<script src="../js/data.js"></script>
+<script>
+function submitService(e) {
+  e.preventDefault();
+  var ref = 'SVC-' + Date.now().toString(36).toUpperCase();
+  document.getElementById('ref-number').textContent = ref;
+  document.getElementById('service-form').classList.add('hidden');
+  document.getElementById('service-success').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appliance Guide — HomeGuide NZ</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <header class="app-header">
+    <div class="header-inner">
+      <a href="appliances.html" class="back-link" id="back-to-list">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        My appliances
+      </a>
+      <div class="logo">
+        <div class="logo-mark">HG</div>
+        <div class="logo-text">
+          <span class="logo-name">HomeGuide</span>
+          <span class="logo-nz">NZ</span>
+        </div>
+      </div>
+      <div style="width:80px"></div>
+    </div>
+  </header>
+
+  <!-- Pro install banner (shown/hidden by JS) -->
+  <div class="pro-banner hidden" id="pro-banner">
+    <div class="pro-banner-inner">
+      <div class="pro-icon">⚠</div>
+      <div class="pro-text">
+        <strong>Licensed installer required by NZ law.</strong>
+        <span id="pro-reason"></span>
+        <a href="#find-installer" class="pro-link">Find a certified installer near you ↓</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-main">
+
+    <!-- Appliance hero -->
+    <div class="appliance-hero" id="appliance-hero">
+      <div class="ah-icon" id="ah-icon">🫧</div>
+      <div class="ah-info">
+        <h1 class="ah-name" id="ah-name">LG Front Load Washer</h1>
+        <p class="ah-model" id="ah-model">Model: WM4200HWA · 10kg</p>
+        <p class="ah-retailer" id="ah-retailer">Purchased from Folders Appliances</p>
+      </div>
+    </div>
+
+    <!-- Warranty status bar -->
+    <div class="warranty-status" id="warranty-status">
+      <!-- Filled by JS -->
+    </div>
+
+    <!-- Guide tabs -->
+    <div class="guide-tab-bar">
+      <button class="gtab active" onclick="switchGuide('unbox', this)" data-tab="unbox">
+        📦 Unbox
+      </button>
+      <button class="gtab" onclick="switchGuide('install', this)" data-tab="install">
+        🔧 Install
+      </button>
+      <button class="gtab" onclick="switchGuide('troubleshoot', this)" data-tab="troubleshoot">
+        🔍 Fix
+      </button>
+      <button class="gtab" onclick="switchGuide('warranty', this)" data-tab="warranty">
+        📋 Warranty
+      </button>
+    </div>
+
+    <!-- Guide panels -->
+    <div id="guide-content">
+
+      <!-- Unbox panel -->
+      <div class="guide-panel" id="panel-unbox">
+        <div class="video-embed-wrap" id="unbox-video-wrap">
+          <!-- YouTube embed inserted by JS -->
+        </div>
+        <div class="guide-steps" id="unbox-steps">
+          <!-- Steps inserted by JS -->
+        </div>
+      </div>
+
+      <!-- Install panel -->
+      <div class="guide-panel hidden" id="panel-install">
+        <div class="video-embed-wrap" id="install-video-wrap"></div>
+        <div class="guide-steps" id="install-steps"></div>
+      </div>
+
+      <!-- Troubleshoot panel -->
+      <div class="guide-panel hidden" id="panel-troubleshoot">
+        <div class="guide-steps" id="troubleshoot-steps"></div>
+        <div class="service-cta" id="service-cta">
+          <h3 class="cta-title">Still having issues?</h3>
+          <p class="cta-desc">Our service team can help. Book a call with a certified appliance technician.</p>
+          <a href="service.html" class="btn-primary" style="display:inline-block;text-decoration:none">Request a service visit</a>
+        </div>
+      </div>
+
+      <!-- Warranty panel -->
+      <div class="guide-panel hidden" id="panel-warranty">
+        <div id="warranty-detail"></div>
+        <div id="repair-history"></div>
+        <div class="service-cta">
+          <h3 class="cta-title">Need to make a warranty claim?</h3>
+          <p class="cta-desc">Contact your retailer with your invoice number. Your full purchase history is saved here.</p>
+          <button class="btn-primary" onclick="shareWarranty()">Share warranty info</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Find installer section -->
+    <div class="installer-section hidden" id="find-installer">
+      <h2 class="section-title">Find a certified installer</h2>
+      <p class="installer-note">The following trades are licensed to install this type of appliance in New Zealand.</p>
+      <div id="installer-list"></div>
+      <div class="installer-cta">
+        <p class="installer-cta-text">Are you a certified installer? <a href="mailto:hello@homeguide.nz">List your business on HomeGuide →</a></p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>HomeGuide NZ &copy; 2025 &mdash; Beta 0.1</p>
+    <p class="footer-sub">Always follow manufacturer instructions and NZ regulations.</p>
+  </footer>
+
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/guide.js"></script>
+</body>
+</html>
