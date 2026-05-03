@@ -95,7 +95,7 @@ var APPLIANCE_CATALOG = {
     model: 'MSZ-AP35VGD',
     category: 'heat-pump',
     icon: '❄️',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Air_conditioning_unit-en.svg/400px-Air_conditioning_unit-en.svg.png',
+    image: '/heatpump.jpg',
     specs: '3.5kW · Hyper Heat · Wall unit',
     warranty_months: 60,
     requires_pro_install: true,
