@@ -19,13 +19,13 @@ var APPLIANCE_CATALOG = {
 
   'washer-lg-wm4200': {
     id: 'washer-lg-wm4200',
-    name: 'LG Front Load Washer',
+    name: 'LG Washer Dryer',
     brand: 'LG',
-    model: 'WM4200HWA',
+    model: 'FV1409H3V',
     category: 'washing-machine',
     icon: '🫧',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/LG_Front_Load_Washer.jpg/400px-LG_Front_Load_Washer.jpg',
-    specs: '10kg · 1400rpm · Inverter Direct Drive',
+    image: 'DZ-01 (1).jpg',
+    specs: '9kg/5kg · AI Direct Drive · Steam · ThinQ',
     warranty_months: 24,
     requires_pro_install: false,
     purchase_date: '2024-09-14',
